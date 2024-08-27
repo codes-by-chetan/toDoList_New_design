@@ -24,7 +24,7 @@ function displayTasks() {
         isDisabled = istaskcomplete ? "text-muted list-group-item-dark":"";
         todolist = `<li class="task  ${isDisabled}" id="task-${tid}">
                         
-                        <div class="task-status">
+                        <div class="task-status checkbox">
                             <input type="checkbox" class="checkbox-task  mark-${istaskcomplete}" name="mark-${tid}" id="mark-${tid}" onclick="marker(${i})" ${iscompletetext}>
                             <label for="mark-${tid}">${iscompleteclasstext}</label><br>
                         </div>
@@ -105,7 +105,7 @@ function editTask(i, btn) {
     editEl = `
                     <label class="edit-task-input-label" for="task-${tid}-input">Edit your task and hit Save</label>
                     <input type="text" class="edit-task-input" id="task-${tid}-input" name="task-${tid}-input" value="${tdesc}" />
-                    <div>
+                    <div class="edit-task-status">
                         <input type="checkbox" class="edit-task-checkbox mark-${istaskcomplete}" id="task-${tid}-checkbox" name="task-${tid}-checkbox" value="" ${iscompletetext}>
                         <label class="edit-task-checkbox-label" for="task-${tid}-checkbox">Mark task as complete</label>
                     </div>
@@ -173,3 +173,36 @@ function marker(i){
 
     localSave()
 }
+
+function setFontSize() {
+    let width = window.innerWidth;
+    let  height = window.innerHeight;
+
+    let fontSize = "15px";
+    console.log("width: ",width,"height: ",height)
+    if (width > height) {
+        fontSize = "13px";
+        console.log("width is higher than height");
+    } else {
+        fontSize = "8px";
+        console.log("width is less than height");
+    }
+    taskDisplayConatiner.style.fontSize =fontSize;
+   
+}
+window.addEventListener("resize", function(){
+    let width = window.innerWidth;
+    let  height = window.innerHeight;
+
+    let fontSize = "15px";
+    console.log("width: ",width,"height: ",height)
+    if (width > height) {
+        fontSize = "13px";
+        console.log("width is higher than height");
+    } else {
+        fontSize = "10px";
+        console.log("width is less than height");
+    }
+    taskDisplayConatiner.style.fontSize =fontSize;
+});
+setFontSize();
