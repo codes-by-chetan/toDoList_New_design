@@ -154,7 +154,7 @@ body {
     /* width: fit-content; */
     justify-content: left;
     min-width: 90px;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .task:hover {
